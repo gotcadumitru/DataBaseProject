@@ -64,9 +64,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdministrareLivratori.cs" />
     <Compile Include="AdministrareMasini.cs" />
     <Compile Include="AdministrareFirme.cs" />
     <Compile Include="IStocareFactory.cs" />
+    <Compile Include="IStocareLivratori.cs" />
     <Compile Include="IStocareMasini.cs" />
     <Compile Include="IStocareFirme.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

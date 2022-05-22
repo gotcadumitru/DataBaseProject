@@ -42,7 +42,7 @@ namespace NivelAccesDate
                     cmd.CommandType = cmdType;
                     foreach (var item in parameters)
                     {
-                    //    cmd.Parameters.Add(item);
+                      cmd.Parameters.Add(item);
                     }
 
                     try
@@ -86,6 +86,7 @@ namespace NivelAccesDate
                     }
                     catch (OracleException ex)
                     {
+                        Console.WriteLine(ex.Message);
                         //salveaza exceptii in fisiere log
                     }
                 }

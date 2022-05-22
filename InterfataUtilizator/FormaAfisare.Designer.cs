@@ -37,13 +37,9 @@
             this.txtPrenumeLivrator = new System.Windows.Forms.TextBox();
             this.txtNumeLivrator = new System.Windows.Forms.TextBox();
             this.lblPrenumeLivrator = new System.Windows.Forms.Label();
-            this.txtRaiting = new System.Windows.Forms.TextBox();
-            this.lblRaiting = new System.Windows.Forms.Label();
             this.lblNumeFirma = new System.Windows.Forms.Label();
             this.txtLogoUrl = new System.Windows.Forms.TextBox();
             this.gpbProgrameStudiu = new System.Windows.Forms.GroupBox();
-            this.rdbAvion = new System.Windows.Forms.RadioButton();
-            this.rdbTanc = new System.Windows.Forms.RadioButton();
             this.rdbBicicleta = new System.Windows.Forms.RadioButton();
             this.rdbMotocicleta = new System.Windows.Forms.RadioButton();
             this.rdbAutomobil = new System.Windows.Forms.RadioButton();
@@ -51,15 +47,36 @@
             this.txtNumeFirma = new System.Windows.Forms.TextBox();
             this.btnAdaugaFirma = new System.Windows.Forms.Button();
             this.lblLogo = new System.Windows.Forms.Label();
+            this.lstLivratori = new System.Windows.Forms.ListBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.addLivBtn = new System.Windows.Forms.Button();
+            this.editLivBtn = new System.Windows.Forms.Button();
+            this.deleteLivBtn = new System.Windows.Forms.Button();
+            this.eroareLivratorLbl = new System.Windows.Forms.Label();
+            this.dataAngPicker = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.dataNasteriiPicker = new System.Windows.Forms.DateTimePicker();
+            this.emailValue = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textModelCar = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textMarkValue = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.lstMasine = new System.Windows.Forms.ListBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.eroareMasinaLbl = new System.Windows.Forms.Label();
             this.gpbProgrameStudiu.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnUpdateFirma
             // 
-            this.btnUpdateFirma.Location = new System.Drawing.Point(129, 172);
+            this.btnUpdateFirma.Location = new System.Drawing.Point(144, 109);
             this.btnUpdateFirma.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnUpdateFirma.Name = "btnUpdateFirma";
-            this.btnUpdateFirma.Size = new System.Drawing.Size(124, 28);
+            this.btnUpdateFirma.Size = new System.Drawing.Size(103, 28);
             this.btnUpdateFirma.TabIndex = 73;
             this.btnUpdateFirma.Text = "Update Firma";
             this.btnUpdateFirma.UseVisualStyleBackColor = true;
@@ -72,35 +89,35 @@
             this.lstFirme.Location = new System.Drawing.Point(425, 16);
             this.lstFirme.Margin = new System.Windows.Forms.Padding(4);
             this.lstFirme.Name = "lstFirme";
-            this.lstFirme.Size = new System.Drawing.Size(453, 388);
+            this.lstFirme.Size = new System.Drawing.Size(472, 164);
             this.lstFirme.TabIndex = 72;
             this.lstFirme.SelectedIndexChanged += new System.EventHandler(this.lstFirme_SelectedIndexChanged);
             // 
             // btnAfisareFirme
             // 
-            this.btnAfisareFirme.Location = new System.Drawing.Point(260, 172);
+            this.btnAfisareFirme.Location = new System.Drawing.Point(267, 109);
             this.btnAfisareFirme.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAfisareFirme.Name = "btnAfisareFirme";
-            this.btnAfisareFirme.Size = new System.Drawing.Size(124, 28);
+            this.btnAfisareFirme.Size = new System.Drawing.Size(103, 28);
             this.btnAfisareFirme.TabIndex = 71;
-            this.btnAfisareFirme.Text = "Afisare Firme";
+            this.btnAfisareFirme.Text = "Refresh";
             this.btnAfisareFirme.UseVisualStyleBackColor = true;
             this.btnAfisareFirme.Click += new System.EventHandler(this.btnAfisareFirme_Click);
             // 
             // txtFirmaError
             // 
             this.txtFirmaError.ForeColor = System.Drawing.Color.Red;
-            this.txtFirmaError.Location = new System.Drawing.Point(2, 121);
+            this.txtFirmaError.Location = new System.Drawing.Point(13, 80);
             this.txtFirmaError.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.txtFirmaError.Name = "txtFirmaError";
-            this.txtFirmaError.Size = new System.Drawing.Size(431, 34);
+            this.txtFirmaError.Size = new System.Drawing.Size(357, 21);
             this.txtFirmaError.TabIndex = 70;
             this.txtFirmaError.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblTransport
             // 
             this.lblTransport.AutoSize = true;
-            this.lblTransport.Location = new System.Drawing.Point(6, 324);
+            this.lblTransport.Location = new System.Drawing.Point(422, 713);
             this.lblTransport.Name = "lblTransport";
             this.lblTransport.Size = new System.Drawing.Size(73, 16);
             this.lblTransport.TabIndex = 69;
@@ -109,15 +126,15 @@
             // lblNumeLivrator
             // 
             this.lblNumeLivrator.AutoSize = true;
-            this.lblNumeLivrator.Location = new System.Drawing.Point(6, 242);
+            this.lblNumeLivrator.Location = new System.Drawing.Point(15, 242);
             this.lblNumeLivrator.Name = "lblNumeLivrator";
-            this.lblNumeLivrator.Size = new System.Drawing.Size(98, 16);
+            this.lblNumeLivrator.Size = new System.Drawing.Size(75, 16);
             this.lblNumeLivrator.TabIndex = 68;
-            this.lblNumeLivrator.Text = "*Nume Livrator:";
+            this.lblNumeLivrator.Text = "*Nume Livr:";
             // 
             // txtPrenumeLivrator
             // 
-            this.txtPrenumeLivrator.Location = new System.Drawing.Point(130, 274);
+            this.txtPrenumeLivrator.Location = new System.Drawing.Point(114, 274);
             this.txtPrenumeLivrator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPrenumeLivrator.Name = "txtPrenumeLivrator";
             this.txtPrenumeLivrator.Size = new System.Drawing.Size(256, 22);
@@ -125,7 +142,7 @@
             // 
             // txtNumeLivrator
             // 
-            this.txtNumeLivrator.Location = new System.Drawing.Point(130, 239);
+            this.txtNumeLivrator.Location = new System.Drawing.Point(114, 239);
             this.txtNumeLivrator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNumeLivrator.Name = "txtNumeLivrator";
             this.txtNumeLivrator.Size = new System.Drawing.Size(256, 22);
@@ -134,33 +151,17 @@
             // lblPrenumeLivrator
             // 
             this.lblPrenumeLivrator.AutoSize = true;
-            this.lblPrenumeLivrator.Location = new System.Drawing.Point(6, 278);
+            this.lblPrenumeLivrator.Location = new System.Drawing.Point(15, 277);
             this.lblPrenumeLivrator.Name = "lblPrenumeLivrator";
-            this.lblPrenumeLivrator.Size = new System.Drawing.Size(116, 16);
+            this.lblPrenumeLivrator.Size = new System.Drawing.Size(69, 16);
             this.lblPrenumeLivrator.TabIndex = 65;
-            this.lblPrenumeLivrator.Text = "*Prenume Livrator:";
-            // 
-            // txtRaiting
-            // 
-            this.txtRaiting.Location = new System.Drawing.Point(124, 91);
-            this.txtRaiting.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtRaiting.Name = "txtRaiting";
-            this.txtRaiting.Size = new System.Drawing.Size(256, 22);
-            this.txtRaiting.TabIndex = 64;
-            // 
-            // lblRaiting
-            // 
-            this.lblRaiting.AutoSize = true;
-            this.lblRaiting.Location = new System.Drawing.Point(0, 95);
-            this.lblRaiting.Name = "lblRaiting";
-            this.lblRaiting.Size = new System.Drawing.Size(52, 16);
-            this.lblRaiting.TabIndex = 63;
-            this.lblRaiting.Text = "Raiting:";
+            this.lblPrenumeLivrator.Text = "*Prenume:";
+            this.lblPrenumeLivrator.Click += new System.EventHandler(this.lblPrenumeLivrator_Click);
             // 
             // lblNumeFirma
             // 
             this.lblNumeFirma.AutoSize = true;
-            this.lblNumeFirma.Location = new System.Drawing.Point(0, 20);
+            this.lblNumeFirma.Location = new System.Drawing.Point(15, 20);
             this.lblNumeFirma.Name = "lblNumeFirma";
             this.lblNumeFirma.Size = new System.Drawing.Size(85, 16);
             this.lblNumeFirma.TabIndex = 62;
@@ -168,7 +169,7 @@
             // 
             // txtLogoUrl
             // 
-            this.txtLogoUrl.Location = new System.Drawing.Point(124, 52);
+            this.txtLogoUrl.Location = new System.Drawing.Point(113, 49);
             this.txtLogoUrl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtLogoUrl.Name = "txtLogoUrl";
             this.txtLogoUrl.Size = new System.Drawing.Size(256, 22);
@@ -176,43 +177,17 @@
             // 
             // gpbProgrameStudiu
             // 
-            this.gpbProgrameStudiu.Controls.Add(this.rdbAvion);
-            this.gpbProgrameStudiu.Controls.Add(this.rdbTanc);
             this.gpbProgrameStudiu.Controls.Add(this.rdbBicicleta);
             this.gpbProgrameStudiu.Controls.Add(this.rdbMotocicleta);
             this.gpbProgrameStudiu.Controls.Add(this.rdbAutomobil);
             this.gpbProgrameStudiu.Controls.Add(this.rdbTrotineta);
-            this.gpbProgrameStudiu.Location = new System.Drawing.Point(130, 308);
+            this.gpbProgrameStudiu.Location = new System.Drawing.Point(425, 733);
             this.gpbProgrameStudiu.Margin = new System.Windows.Forms.Padding(4);
             this.gpbProgrameStudiu.Name = "gpbProgrameStudiu";
             this.gpbProgrameStudiu.Padding = new System.Windows.Forms.Padding(4);
-            this.gpbProgrameStudiu.Size = new System.Drawing.Size(257, 103);
+            this.gpbProgrameStudiu.Size = new System.Drawing.Size(257, 79);
             this.gpbProgrameStudiu.TabIndex = 60;
             this.gpbProgrameStudiu.TabStop = false;
-            // 
-            // rdbAvion
-            // 
-            this.rdbAvion.AutoSize = true;
-            this.rdbAvion.Location = new System.Drawing.Point(140, 68);
-            this.rdbAvion.Margin = new System.Windows.Forms.Padding(4);
-            this.rdbAvion.Name = "rdbAvion";
-            this.rdbAvion.Size = new System.Drawing.Size(62, 20);
-            this.rdbAvion.TabIndex = 13;
-            this.rdbAvion.TabStop = true;
-            this.rdbAvion.Text = "Avion";
-            this.rdbAvion.UseVisualStyleBackColor = true;
-            // 
-            // rdbTanc
-            // 
-            this.rdbTanc.AutoSize = true;
-            this.rdbTanc.Location = new System.Drawing.Point(20, 68);
-            this.rdbTanc.Margin = new System.Windows.Forms.Padding(4);
-            this.rdbTanc.Name = "rdbTanc";
-            this.rdbTanc.Size = new System.Drawing.Size(59, 20);
-            this.rdbTanc.TabIndex = 12;
-            this.rdbTanc.TabStop = true;
-            this.rdbTanc.Text = "Tanc";
-            this.rdbTanc.UseVisualStyleBackColor = true;
             // 
             // rdbBicicleta
             // 
@@ -249,6 +224,7 @@
             this.rdbAutomobil.TabStop = true;
             this.rdbAutomobil.Text = "Automobil";
             this.rdbAutomobil.UseVisualStyleBackColor = true;
+            this.rdbAutomobil.CheckedChanged += new System.EventHandler(this.rdbAutomobil_CheckedChanged);
             // 
             // rdbTrotineta
             // 
@@ -264,7 +240,7 @@
             // 
             // txtNumeFirma
             // 
-            this.txtNumeFirma.Location = new System.Drawing.Point(124, 16);
+            this.txtNumeFirma.Location = new System.Drawing.Point(114, 16);
             this.txtNumeFirma.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNumeFirma.Name = "txtNumeFirma";
             this.txtNumeFirma.Size = new System.Drawing.Size(256, 22);
@@ -273,10 +249,10 @@
             // 
             // btnAdaugaFirma
             // 
-            this.btnAdaugaFirma.Location = new System.Drawing.Point(0, 172);
+            this.btnAdaugaFirma.Location = new System.Drawing.Point(18, 109);
             this.btnAdaugaFirma.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAdaugaFirma.Name = "btnAdaugaFirma";
-            this.btnAdaugaFirma.Size = new System.Drawing.Size(124, 28);
+            this.btnAdaugaFirma.Size = new System.Drawing.Size(103, 28);
             this.btnAdaugaFirma.TabIndex = 58;
             this.btnAdaugaFirma.Text = "Adauga Firma";
             this.btnAdaugaFirma.UseVisualStyleBackColor = true;
@@ -285,34 +261,247 @@
             // lblLogo
             // 
             this.lblLogo.AutoSize = true;
-            this.lblLogo.Location = new System.Drawing.Point(0, 55);
+            this.lblLogo.Location = new System.Drawing.Point(15, 52);
             this.lblLogo.Name = "lblLogo";
             this.lblLogo.Size = new System.Drawing.Size(63, 16);
             this.lblLogo.TabIndex = 57;
             this.lblLogo.Text = "*Logo url:";
             // 
+            // lstLivratori
+            // 
+            this.lstLivratori.FormattingEnabled = true;
+            this.lstLivratori.ItemHeight = 16;
+            this.lstLivratori.Location = new System.Drawing.Point(425, 239);
+            this.lstLivratori.Margin = new System.Windows.Forms.Padding(4);
+            this.lstLivratori.Name = "lstLivratori";
+            this.lstLivratori.Size = new System.Drawing.Size(472, 404);
+            this.lstLivratori.TabIndex = 74;
+            this.lstLivratori.SelectedIndexChanged += new System.EventHandler(this.lstLivratori_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label1.Location = new System.Drawing.Point(18, 206);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(879, 5);
+            this.label1.TabIndex = 75;
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // addLivBtn
+            // 
+            this.addLivBtn.Location = new System.Drawing.Point(18, 630);
+            this.addLivBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.addLivBtn.Name = "addLivBtn";
+            this.addLivBtn.Size = new System.Drawing.Size(103, 28);
+            this.addLivBtn.TabIndex = 76;
+            this.addLivBtn.Text = "Adauga Liv";
+            this.addLivBtn.UseVisualStyleBackColor = true;
+            this.addLivBtn.Click += new System.EventHandler(this.addLivBtn_Click);
+            // 
+            // editLivBtn
+            // 
+            this.editLivBtn.Location = new System.Drawing.Point(144, 630);
+            this.editLivBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.editLivBtn.Name = "editLivBtn";
+            this.editLivBtn.Size = new System.Drawing.Size(103, 28);
+            this.editLivBtn.TabIndex = 77;
+            this.editLivBtn.Text = "Editeaza Liv";
+            this.editLivBtn.UseVisualStyleBackColor = true;
+            // 
+            // deleteLivBtn
+            // 
+            this.deleteLivBtn.Location = new System.Drawing.Point(267, 630);
+            this.deleteLivBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.deleteLivBtn.Name = "deleteLivBtn";
+            this.deleteLivBtn.Size = new System.Drawing.Size(103, 28);
+            this.deleteLivBtn.TabIndex = 78;
+            this.deleteLivBtn.Text = "Sterge Liv";
+            this.deleteLivBtn.UseVisualStyleBackColor = true;
+            // 
+            // eroareLivratorLbl
+            // 
+            this.eroareLivratorLbl.ForeColor = System.Drawing.Color.Red;
+            this.eroareLivratorLbl.Location = new System.Drawing.Point(14, 594);
+            this.eroareLivratorLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.eroareLivratorLbl.Name = "eroareLivratorLbl";
+            this.eroareLivratorLbl.Size = new System.Drawing.Size(355, 21);
+            this.eroareLivratorLbl.TabIndex = 79;
+            this.eroareLivratorLbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.eroareLivratorLbl.Click += new System.EventHandler(this.eroareLivratorLbl_Click);
+            // 
+            // dataAngPicker
+            // 
+            this.dataAngPicker.Location = new System.Drawing.Point(113, 352);
+            this.dataAngPicker.Name = "dataAngPicker";
+            this.dataAngPicker.Size = new System.Drawing.Size(255, 22);
+            this.dataAngPicker.TabIndex = 80;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(14, 352);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(70, 16);
+            this.label2.TabIndex = 81;
+            this.label2.Text = "*Data ang:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(10, 394);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(90, 16);
+            this.label3.TabIndex = 83;
+            this.label3.Text = "*Data nasterii:";
+            // 
+            // dataNasteriiPicker
+            // 
+            this.dataNasteriiPicker.Location = new System.Drawing.Point(115, 394);
+            this.dataNasteriiPicker.Name = "dataNasteriiPicker";
+            this.dataNasteriiPicker.Size = new System.Drawing.Size(255, 22);
+            this.dataNasteriiPicker.TabIndex = 82;
+            // 
+            // emailValue
+            // 
+            this.emailValue.Location = new System.Drawing.Point(114, 311);
+            this.emailValue.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.emailValue.Name = "emailValue";
+            this.emailValue.Size = new System.Drawing.Size(256, 22);
+            this.emailValue.TabIndex = 85;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(15, 314);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(49, 16);
+            this.label4.TabIndex = 84;
+            this.label4.Text = "*Email:";
+            // 
+            // label5
+            // 
+            this.label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label5.Location = new System.Drawing.Point(18, 683);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(879, 5);
+            this.label5.TabIndex = 86;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(13, 727);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(53, 16);
+            this.label6.TabIndex = 88;
+            this.label6.Text = "*Model:";
+            // 
+            // textModelCar
+            // 
+            this.textModelCar.Location = new System.Drawing.Point(112, 724);
+            this.textModelCar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textModelCar.Name = "textModelCar";
+            this.textModelCar.Size = new System.Drawing.Size(256, 22);
+            this.textModelCar.TabIndex = 87;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(15, 763);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(45, 16);
+            this.label7.TabIndex = 90;
+            this.label7.Text = "*Mark:";
+            // 
+            // textMarkValue
+            // 
+            this.textMarkValue.Location = new System.Drawing.Point(112, 760);
+            this.textMarkValue.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textMarkValue.Name = "textMarkValue";
+            this.textMarkValue.Size = new System.Drawing.Size(256, 22);
+            this.textMarkValue.TabIndex = 89;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(23, 824);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(347, 28);
+            this.button1.TabIndex = 91;
+            this.button1.Text = "Adauga Masina";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // lstMasine
+            // 
+            this.lstMasine.FormattingEnabled = true;
+            this.lstMasine.ItemHeight = 16;
+            this.lstMasine.Location = new System.Drawing.Point(16, 463);
+            this.lstMasine.Margin = new System.Windows.Forms.Padding(4);
+            this.lstMasine.Name = "lstMasine";
+            this.lstMasine.Size = new System.Drawing.Size(352, 116);
+            this.lstMasine.TabIndex = 92;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(15, 439);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(71, 20);
+            this.label8.TabIndex = 93;
+            this.label8.Text = "*Vehicol";
+            // 
+            // eroareMasinaLbl
+            // 
+            this.eroareMasinaLbl.ForeColor = System.Drawing.Color.Red;
+            this.eroareMasinaLbl.Location = new System.Drawing.Point(19, 791);
+            this.eroareMasinaLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.eroareMasinaLbl.Name = "eroareMasinaLbl";
+            this.eroareMasinaLbl.Size = new System.Drawing.Size(355, 21);
+            this.eroareMasinaLbl.TabIndex = 94;
+            this.eroareMasinaLbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // FormaAfisare
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(910, 583);
+            this.ClientSize = new System.Drawing.Size(934, 879);
+            this.Controls.Add(this.eroareMasinaLbl);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.lstMasine);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.textMarkValue);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.textModelCar);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.emailValue);
+            this.Controls.Add(this.lblTransport);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.dataNasteriiPicker);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.dataAngPicker);
+            this.Controls.Add(this.eroareLivratorLbl);
+            this.Controls.Add(this.deleteLivBtn);
+            this.Controls.Add(this.editLivBtn);
+            this.Controls.Add(this.addLivBtn);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lstLivratori);
             this.Controls.Add(this.btnUpdateFirma);
             this.Controls.Add(this.lstFirme);
             this.Controls.Add(this.btnAfisareFirme);
             this.Controls.Add(this.txtFirmaError);
-            this.Controls.Add(this.lblTransport);
             this.Controls.Add(this.lblNumeLivrator);
             this.Controls.Add(this.txtPrenumeLivrator);
             this.Controls.Add(this.txtNumeLivrator);
             this.Controls.Add(this.lblPrenumeLivrator);
-            this.Controls.Add(this.txtRaiting);
-            this.Controls.Add(this.lblRaiting);
             this.Controls.Add(this.lblNumeFirma);
             this.Controls.Add(this.txtLogoUrl);
             this.Controls.Add(this.gpbProgrameStudiu);
             this.Controls.Add(this.txtNumeFirma);
             this.Controls.Add(this.btnAdaugaFirma);
             this.Controls.Add(this.lblLogo);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormaAfisare";
             this.Text = "Catalog Masini";
@@ -336,13 +525,9 @@
         private System.Windows.Forms.TextBox txtPrenumeLivrator;
         private System.Windows.Forms.TextBox txtNumeLivrator;
         private System.Windows.Forms.Label lblPrenumeLivrator;
-        private System.Windows.Forms.TextBox txtRaiting;
-        private System.Windows.Forms.Label lblRaiting;
         private System.Windows.Forms.Label lblNumeFirma;
         private System.Windows.Forms.TextBox txtLogoUrl;
         private System.Windows.Forms.GroupBox gpbProgrameStudiu;
-        private System.Windows.Forms.RadioButton rdbAvion;
-        private System.Windows.Forms.RadioButton rdbTanc;
         private System.Windows.Forms.RadioButton rdbBicicleta;
         private System.Windows.Forms.RadioButton rdbMotocicleta;
         private System.Windows.Forms.RadioButton rdbAutomobil;
@@ -350,6 +535,27 @@
         private System.Windows.Forms.TextBox txtNumeFirma;
         private System.Windows.Forms.Button btnAdaugaFirma;
         private System.Windows.Forms.Label lblLogo;
+        private System.Windows.Forms.ListBox lstLivratori;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button addLivBtn;
+        private System.Windows.Forms.Button editLivBtn;
+        private System.Windows.Forms.Button deleteLivBtn;
+        private System.Windows.Forms.Label eroareLivratorLbl;
+        private System.Windows.Forms.DateTimePicker dataAngPicker;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DateTimePicker dataNasteriiPicker;
+        private System.Windows.Forms.TextBox emailValue;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox textModelCar;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox textMarkValue;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ListBox lstMasine;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label eroareMasinaLbl;
     }
 }
 

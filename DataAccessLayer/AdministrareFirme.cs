@@ -13,6 +13,7 @@ namespace NivelAccesDate
         public List<Firma> GetFirme()
         {
             var result = new List<Firma>();
+            //var response = SqlDBHelper.ExecuteDataSet("CREATE SEQUENCE FIRME_LIVRATI_ID_SEQ START WITH 1 INCREMENT BY 1 CACHE 100", CommandType.Text);
             //var response = SqlDBHelper.ExecuteDataSet("CREATE TABLE VEHICLE_TYPE_DG ( ID NUMBER(3) CONSTRAINT pk_dg_veh_type_id PRIMARY KEY, TYPE VARCHAR2(100) CONSTRAINT ck_dg_veh_type_type CHECK(TYPE = ANY('AUTO', 'MOTO', 'ELECTRIC SCOOTER', 'BICYCLE')))", CommandType.Text);
             //var response = SqlDBHelper.ExecuteDataSet("CREATE TABLE VEHICLES_DG ( ID NUMBER(3) CONSTRAINT pk_dg_veh_id PRIMARY KEY, MODEL VARCHAR2(100) CONSTRAINT nn_dg_veh_model NOT NULL, MARK VARCHAR2(100) CONSTRAINT nn_dg_veh_mark NOT NULL, TYPE_ID NUMBER(3) CONSTRAINT fk_dg_veh_mark REFERENCES VEHICLE_TYPE_DG(ID))", CommandType.Text);
             //var response = SqlDBHelper.ExecuteDataSet("CREATE TABLE DELIVERY_COMPANIES_DG ( ID NUMBER(3) CONSTRAINT pk_dg_firma_id PRIMARY KEY, NAME VARCHAR2(100) CONSTRAINT nn_dg_firma_name NOT NULL, LOGO_URL VARCHAR2(100) CONSTRAINT nn_dg_firma_logo_url NOT NULL )", CommandType.Text);
@@ -30,7 +31,7 @@ namespace NivelAccesDate
         public Firma GetFirma(int id)
         {
             Firma result = null;
-            var dsFirme = SqlDBHelper.ExecuteDataSet("select * from companii_DEV where IdCompanie = :IdCompanie", CommandType.Text,
+            var dsFirme = SqlDBHelper.ExecuteDataSet("select * from DELIVERY_COMPANIES_DG where id = :IdCompanie", CommandType.Text,
             new OracleParameter(":IdCompanie", OracleDbType.Int32, id, ParameterDirection.Input));
 
             if (dsFirme.Tables[PRIMUL_TABEL].Rows.Count > 0)
@@ -44,7 +45,7 @@ namespace NivelAccesDate
         public bool AddFirma(Firma comp)
         {
             return SqlDBHelper.ExecuteNonQuery(
-                "INSERT INTO companii_DEV VALUES (seq_companii_DEV.nextval, :Name, :LogoUrl)", CommandType.Text,
+                "INSERT INTO DELIVERY_COMPANIES_DG VALUES (FIRME_LIVRATI_ID_SEQ.nextval, :Name, :LogoUrl)", CommandType.Text,
                 new OracleParameter(":Name", OracleDbType.NVarchar2, comp.Name, ParameterDirection.Input),
                 new OracleParameter(":LogoUrl", OracleDbType.NVarchar2, comp.LogoUrl, ParameterDirection.Input));
         }
@@ -52,9 +53,10 @@ namespace NivelAccesDate
         public bool UpdateFirma(Firma comp)
         {
             return SqlDBHelper.ExecuteNonQuery(
-                "UPDATE companii_DEV set Name = :Name, LogoUrl = :LogoUrl", CommandType.Text,
+                "UPDATE DELIVERY_COMPANIES_DG set NAME = :Name, LOGO_URL = :LogoUrl where ID = :IdFirma", CommandType.Text,
                 new OracleParameter(":Name", OracleDbType.NVarchar2, comp.Name, ParameterDirection.Input),
-                new OracleParameter(":LogoUrl", OracleDbType.NVarchar2, comp.LogoUrl, ParameterDirection.Input));
+                new OracleParameter(":LogoUrl", OracleDbType.NVarchar2, comp.LogoUrl, ParameterDirection.Input),
+                new OracleParameter(":IdFirma", OracleDbType.NVarchar2, comp.Id, ParameterDirection.Input));
         }
     }
 }
