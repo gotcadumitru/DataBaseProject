@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormaAfisare));
             this.btnUpdateFirma = new System.Windows.Forms.Button();
             this.lstFirme = new System.Windows.Forms.ListBox();
-            this.btnAfisareFirme = new System.Windows.Forms.Button();
             this.txtFirmaError = new System.Windows.Forms.Label();
             this.lblTransport = new System.Windows.Forms.Label();
             this.lblNumeLivrator = new System.Windows.Forms.Label();
@@ -68,6 +68,7 @@
             this.lstMasine = new System.Windows.Forms.ListBox();
             this.label8 = new System.Windows.Forms.Label();
             this.eroareMasinaLbl = new System.Windows.Forms.Label();
+            this.btnStergeFirma = new System.Windows.Forms.Button();
             this.gpbProgrameStudiu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -78,12 +79,13 @@
             this.btnUpdateFirma.Name = "btnUpdateFirma";
             this.btnUpdateFirma.Size = new System.Drawing.Size(103, 28);
             this.btnUpdateFirma.TabIndex = 73;
-            this.btnUpdateFirma.Text = "Update Firma";
+            this.btnUpdateFirma.Text = "Modifica";
             this.btnUpdateFirma.UseVisualStyleBackColor = true;
             this.btnUpdateFirma.Click += new System.EventHandler(this.btnUpdateFirma_Click);
             // 
             // lstFirme
             // 
+            this.lstFirme.BackColor = System.Drawing.SystemColors.Window;
             this.lstFirme.FormattingEnabled = true;
             this.lstFirme.ItemHeight = 16;
             this.lstFirme.Location = new System.Drawing.Point(425, 16);
@@ -93,19 +95,9 @@
             this.lstFirme.TabIndex = 72;
             this.lstFirme.SelectedIndexChanged += new System.EventHandler(this.lstFirme_SelectedIndexChanged);
             // 
-            // btnAfisareFirme
-            // 
-            this.btnAfisareFirme.Location = new System.Drawing.Point(267, 109);
-            this.btnAfisareFirme.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnAfisareFirme.Name = "btnAfisareFirme";
-            this.btnAfisareFirme.Size = new System.Drawing.Size(103, 28);
-            this.btnAfisareFirme.TabIndex = 71;
-            this.btnAfisareFirme.Text = "Refresh";
-            this.btnAfisareFirme.UseVisualStyleBackColor = true;
-            this.btnAfisareFirme.Click += new System.EventHandler(this.btnAfisareFirme_Click);
-            // 
             // txtFirmaError
             // 
+            this.txtFirmaError.BackColor = System.Drawing.Color.Transparent;
             this.txtFirmaError.ForeColor = System.Drawing.Color.Red;
             this.txtFirmaError.Location = new System.Drawing.Point(13, 80);
             this.txtFirmaError.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -117,6 +109,7 @@
             // lblTransport
             // 
             this.lblTransport.AutoSize = true;
+            this.lblTransport.BackColor = System.Drawing.Color.Transparent;
             this.lblTransport.Location = new System.Drawing.Point(422, 713);
             this.lblTransport.Name = "lblTransport";
             this.lblTransport.Size = new System.Drawing.Size(73, 16);
@@ -126,6 +119,7 @@
             // lblNumeLivrator
             // 
             this.lblNumeLivrator.AutoSize = true;
+            this.lblNumeLivrator.BackColor = System.Drawing.Color.Transparent;
             this.lblNumeLivrator.Location = new System.Drawing.Point(15, 242);
             this.lblNumeLivrator.Name = "lblNumeLivrator";
             this.lblNumeLivrator.Size = new System.Drawing.Size(75, 16);
@@ -151,6 +145,7 @@
             // lblPrenumeLivrator
             // 
             this.lblPrenumeLivrator.AutoSize = true;
+            this.lblPrenumeLivrator.BackColor = System.Drawing.Color.Transparent;
             this.lblPrenumeLivrator.Location = new System.Drawing.Point(15, 277);
             this.lblPrenumeLivrator.Name = "lblPrenumeLivrator";
             this.lblPrenumeLivrator.Size = new System.Drawing.Size(69, 16);
@@ -161,6 +156,7 @@
             // lblNumeFirma
             // 
             this.lblNumeFirma.AutoSize = true;
+            this.lblNumeFirma.BackColor = System.Drawing.Color.Transparent;
             this.lblNumeFirma.Location = new System.Drawing.Point(15, 20);
             this.lblNumeFirma.Name = "lblNumeFirma";
             this.lblNumeFirma.Size = new System.Drawing.Size(85, 16);
@@ -177,6 +173,7 @@
             // 
             // gpbProgrameStudiu
             // 
+            this.gpbProgrameStudiu.BackColor = System.Drawing.Color.Transparent;
             this.gpbProgrameStudiu.Controls.Add(this.rdbBicicleta);
             this.gpbProgrameStudiu.Controls.Add(this.rdbMotocicleta);
             this.gpbProgrameStudiu.Controls.Add(this.rdbAutomobil);
@@ -254,13 +251,14 @@
             this.btnAdaugaFirma.Name = "btnAdaugaFirma";
             this.btnAdaugaFirma.Size = new System.Drawing.Size(103, 28);
             this.btnAdaugaFirma.TabIndex = 58;
-            this.btnAdaugaFirma.Text = "Adauga Firma";
+            this.btnAdaugaFirma.Text = "Adauga";
             this.btnAdaugaFirma.UseVisualStyleBackColor = true;
             this.btnAdaugaFirma.Click += new System.EventHandler(this.btnAdaugaFirma_Click);
             // 
             // lblLogo
             // 
             this.lblLogo.AutoSize = true;
+            this.lblLogo.BackColor = System.Drawing.Color.Transparent;
             this.lblLogo.Location = new System.Drawing.Point(15, 52);
             this.lblLogo.Name = "lblLogo";
             this.lblLogo.Size = new System.Drawing.Size(63, 16);
@@ -294,7 +292,7 @@
             this.addLivBtn.Name = "addLivBtn";
             this.addLivBtn.Size = new System.Drawing.Size(103, 28);
             this.addLivBtn.TabIndex = 76;
-            this.addLivBtn.Text = "Adauga Liv";
+            this.addLivBtn.Text = "Adauga";
             this.addLivBtn.UseVisualStyleBackColor = true;
             this.addLivBtn.Click += new System.EventHandler(this.addLivBtn_Click);
             // 
@@ -305,8 +303,9 @@
             this.editLivBtn.Name = "editLivBtn";
             this.editLivBtn.Size = new System.Drawing.Size(103, 28);
             this.editLivBtn.TabIndex = 77;
-            this.editLivBtn.Text = "Editeaza Liv";
+            this.editLivBtn.Text = "Modifica";
             this.editLivBtn.UseVisualStyleBackColor = true;
+            this.editLivBtn.Click += new System.EventHandler(this.editLivBtn_Click);
             // 
             // deleteLivBtn
             // 
@@ -315,11 +314,13 @@
             this.deleteLivBtn.Name = "deleteLivBtn";
             this.deleteLivBtn.Size = new System.Drawing.Size(103, 28);
             this.deleteLivBtn.TabIndex = 78;
-            this.deleteLivBtn.Text = "Sterge Liv";
+            this.deleteLivBtn.Text = "Sterge";
             this.deleteLivBtn.UseVisualStyleBackColor = true;
+            this.deleteLivBtn.Click += new System.EventHandler(this.deleteLivBtn_Click);
             // 
             // eroareLivratorLbl
             // 
+            this.eroareLivratorLbl.BackColor = System.Drawing.Color.Transparent;
             this.eroareLivratorLbl.ForeColor = System.Drawing.Color.Red;
             this.eroareLivratorLbl.Location = new System.Drawing.Point(14, 594);
             this.eroareLivratorLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -339,6 +340,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Location = new System.Drawing.Point(14, 352);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 16);
@@ -348,6 +350,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Location = new System.Drawing.Point(10, 394);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(90, 16);
@@ -372,6 +375,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Location = new System.Drawing.Point(15, 314);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(49, 16);
@@ -389,6 +393,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Location = new System.Drawing.Point(13, 727);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(53, 16);
@@ -406,6 +411,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Location = new System.Drawing.Point(15, 763);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(45, 16);
@@ -440,18 +446,21 @@
             this.lstMasine.Name = "lstMasine";
             this.lstMasine.Size = new System.Drawing.Size(352, 116);
             this.lstMasine.TabIndex = 92;
+            this.lstMasine.SelectedIndexChanged += new System.EventHandler(this.lstMasine_SelectedIndexChanged);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Location = new System.Drawing.Point(15, 439);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(71, 20);
+            this.label8.Size = new System.Drawing.Size(57, 16);
             this.label8.TabIndex = 93;
             this.label8.Text = "*Vehicol";
             // 
             // eroareMasinaLbl
             // 
+            this.eroareMasinaLbl.BackColor = System.Drawing.Color.Transparent;
             this.eroareMasinaLbl.ForeColor = System.Drawing.Color.Red;
             this.eroareMasinaLbl.Location = new System.Drawing.Point(19, 791);
             this.eroareMasinaLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -460,11 +469,25 @@
             this.eroareMasinaLbl.TabIndex = 94;
             this.eroareMasinaLbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // btnStergeFirma
+            // 
+            this.btnStergeFirma.Location = new System.Drawing.Point(267, 109);
+            this.btnStergeFirma.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnStergeFirma.Name = "btnStergeFirma";
+            this.btnStergeFirma.Size = new System.Drawing.Size(103, 28);
+            this.btnStergeFirma.TabIndex = 95;
+            this.btnStergeFirma.Text = "Sterge";
+            this.btnStergeFirma.UseVisualStyleBackColor = true;
+            this.btnStergeFirma.Click += new System.EventHandler(this.btnStergeFirma_Click);
+            // 
             // FormaAfisare
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(934, 879);
+            this.AutoSize = true;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(934, 985);
+            this.Controls.Add(this.btnStergeFirma);
             this.Controls.Add(this.eroareMasinaLbl);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.lstMasine);
@@ -489,7 +512,6 @@
             this.Controls.Add(this.lstLivratori);
             this.Controls.Add(this.btnUpdateFirma);
             this.Controls.Add(this.lstFirme);
-            this.Controls.Add(this.btnAfisareFirme);
             this.Controls.Add(this.txtFirmaError);
             this.Controls.Add(this.lblNumeLivrator);
             this.Controls.Add(this.txtPrenumeLivrator);
@@ -518,7 +540,6 @@
 
         private System.Windows.Forms.Button btnUpdateFirma;
         private System.Windows.Forms.ListBox lstFirme;
-        private System.Windows.Forms.Button btnAfisareFirme;
         private System.Windows.Forms.Label txtFirmaError;
         private System.Windows.Forms.Label lblTransport;
         private System.Windows.Forms.Label lblNumeLivrator;
@@ -556,6 +577,7 @@
         private System.Windows.Forms.ListBox lstMasine;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label eroareMasinaLbl;
+        private System.Windows.Forms.Button btnStergeFirma;
     }
 }
 

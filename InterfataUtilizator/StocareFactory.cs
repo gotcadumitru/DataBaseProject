@@ -29,7 +29,7 @@ namespace InterfataUtilizator
                         {
                             return new AdministrareMasini();
                         }
-                        if (tipEntitate == typeof(Employee))
+                        if (tipEntitate == typeof(Livrator))
                         {
                             return new AdministrareLivratori();
                         }

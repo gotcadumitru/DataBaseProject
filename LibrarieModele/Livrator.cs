@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LibrarieModele
 {
-    public class Employee
+    public class Livrator
     {
         public int Id { get; set; }
         public string FirstName { get; set; }
@@ -18,8 +18,9 @@ namespace LibrarieModele
         public int CompanyId { get; set; }
         public int NumberOfDeliveries { get; set; }
         public int VehicleId{ get; set; }
+        public int isDeleted { get; set; }
 
-        public Employee(int id, string firstName, string lastName, DateTime hireDate, DateTime birthDate, string email, int companyId, int numberOfDeliveries, int vehicleId)
+        public Livrator(int id, string firstName, string lastName, DateTime hireDate, DateTime birthDate, string email, int companyId, int numberOfDeliveries, int vehicleId)
         {
 
             Id = id;
@@ -31,9 +32,11 @@ namespace LibrarieModele
             CompanyId = companyId;
             NumberOfDeliveries = numberOfDeliveries;
             VehicleId= vehicleId;
+            isDeleted = 1;
+            Console.WriteLine("");
         }
 
-        public Employee(DataRow linieBD)
+        public Livrator(DataRow linieBD)
         {
             Id = Convert.ToInt32(linieBD["id"].ToString());
             FirstName = linieBD["first_name"].ToString();
@@ -44,6 +47,7 @@ namespace LibrarieModele
             CompanyId = Convert.ToInt32(linieBD["company_id"].ToString());
             NumberOfDeliveries = Convert.ToInt32(linieBD["number_of_deliveries"].ToString());
             VehicleId = Convert.ToInt32(linieBD["vehicle_id"].ToString());
+            isDeleted = Convert.ToInt32(linieBD["is_deleted"].ToString());
         }
 
 

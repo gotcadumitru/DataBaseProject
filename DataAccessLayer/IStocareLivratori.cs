@@ -6,10 +6,11 @@ namespace NivelAccesDate
 {
     public interface IStocareLivratori : IStocareFactory
     {
-        List<Employee> GetLivatori(int firmaId);
-        Employee GetLivrator(int id);
-        bool AddLivrator(Employee c);
+        List<Livrator> GetLivatori(int firmaId);
+        Livrator GetLivrator(int id);
+        bool AddLivrator(Livrator c);
+        bool DeleteLivrator(int id);
 
-        bool UpdateLivrator(Employee c);
+        bool UpdateLivrator(Livrator c);
     }
 }

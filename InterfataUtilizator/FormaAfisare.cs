@@ -4,6 +4,8 @@ using System.Linq;
 using System.Windows.Forms;
 using NivelAccesDate;
 using LibrarieModele;
+using System.Collections.Generic;
+using System.Drawing;
 
 namespace InterfataUtilizator
 {
@@ -15,7 +17,7 @@ namespace InterfataUtilizator
         //initializare obiecte utilizate pentru salvarea datelor in baza de date (sau alte medii de stocare...daca exista implementare corespunzatoare)
         IStocareFirme stocareFirme = (IStocareFirme)new StocareFactory().GetTipStocare(typeof(Firma));
         IStocareMasini stocareMasini = (IStocareMasini)new StocareFactory().GetTipStocare(typeof(Masina));
-        IStocareLivratori stocareLivratori = (IStocareLivratori)new StocareFactory().GetTipStocare(typeof(Employee));
+        IStocareLivratori stocareLivratori = (IStocareLivratori)new StocareFactory().GetTipStocare(typeof(Livrator));
 
         public FormaAfisare()
         {
@@ -31,6 +33,9 @@ namespace InterfataUtilizator
         {
             AfiseazaFirme();
             stocareMasini.GetMasini();
+            AfiseazaMasini();
+            Image myimage = new Bitmap(@"../../../delivery.jpg");
+            this.BackgroundImage = myimage;
         }
         private void FormaAfisare_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -91,20 +96,54 @@ namespace InterfataUtilizator
                 MessageBox.Show(ex.Message.ToString());
             }
         }
-        private void AfiseazaLivratori(int firmaId)
+        private void AfiseazaLivratori()
         {
             try
             {
-                lstLivratori.Items.Clear();
-                var antetTabel = String.Format("{0,-5}{1,-10}{2,20}{3,20}{4,20}\n", "Id", "Nume", "Prenume","Data angajarii","Comenzi efectuate");
-                lstLivratori.Items.Add(antetTabel);
 
-                var livratori = stocareLivratori.GetLivatori(firmaId);
+                string curItem = lstFirme.SelectedItem.ToString();
+                Int32.TryParse(curItem.Split(' ')[0], out int id);
 
-                foreach (var l in livratori)
+                if (id != 0)
                 {
-                    var linieTabel = String.Format("{0,-5}{1,-10}{2,20}{3,20}{4,20}\n", l.FirstName, l.LastName, l.HireDate,l.NumberOfDeliveries);
-                    lstLivratori.Items.Add(linieTabel);
+                    lstLivratori.Items.Clear();
+                    var antetTabel = String.Format("{0,0}{1,10}{2,20}{3,20}{4,10}\n", "Id", "Nume", "Prenume", "Data angajarii", "Comenzie");
+                    lstLivratori.Items.Add(antetTabel);
+
+                    var livratori = stocareLivratori.GetLivatori(id);
+
+                    foreach (var l in livratori)
+                    {
+                        var linieTabel = String.Format("{0,0}{1,10}{2,20}{3,20}{4,10}\n", l.Id, l.FirstName, l.LastName, l.HireDate.ToString("d"), l.NumberOfDeliveries);
+                        lstLivratori.Items.Add(linieTabel);
+                    }
+
+                }
+                else
+                {
+                    clearFirmaInputs();
+                }
+               
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+        }
+        private void AfiseazaMasini()
+        {
+            try
+            {
+                lstMasine.Items.Clear();
+                var antetTabel = String.Format("{0,-5}{1,-10}{2,20}\n", "Id", "Model", "Marca");
+                lstMasine.Items.Add(antetTabel);
+
+                var masini = stocareMasini.GetMasini();
+
+                foreach (var m in masini)
+                {
+                    var linieTabel = String.Format("{0,-5}{1,-10}{2,20}\n", m.Id, m.Model, m.Mark);
+                    lstMasine.Items.Add(linieTabel);
                 }
             }
             catch (Exception ex)
@@ -160,6 +199,11 @@ namespace InterfataUtilizator
                 eroareLivratorLbl.Text = "Te rog introdu prenumele livratorului";
                 return false;
             }
+            if (emailValue.Text.Length == 0)
+            {
+                eroareLivratorLbl.Text = "Te rog introdu prenumele livratorului";
+                return false;
+            }
 
             eroareLivratorLbl.Text = "";
             return true;
@@ -196,6 +240,8 @@ namespace InterfataUtilizator
             {
           
                     stocareFirme.AddFirma(new Firma(txtNumeFirma.Text, txtLogoUrl.Text));
+                clearFirmaInputs();
+                AfiseazaFirme();
             }
         }
 
@@ -225,7 +271,6 @@ namespace InterfataUtilizator
                             txtFirmaError.Text = "Ceva nu a mers bine la update";
                         }
                     }
-
                 }
                 else
                 {
@@ -248,6 +293,7 @@ namespace InterfataUtilizator
         {
             txtNumeFirma.Text = "";
             txtLogoUrl.Text = "";
+            txtFirmaError.Text = "";
         }
 
 
@@ -257,22 +303,19 @@ namespace InterfataUtilizator
             // Get the currently selected item in the ListBox.
             try
             {
+                if (lstFirme.SelectedItem != null)
+                {
+                    resetLivratorData();
+                    string currentFirma = lstFirme.SelectedItem.ToString();
+                    Int32.TryParse(currentFirma.Split(' ')[0], out int idFirma);
 
-            string curItem = lstFirme.SelectedItem.ToString();
-            Int32.TryParse(curItem.Split(' ')[0], out int id);
+                    var firma = stocareFirme.GetFirma(idFirma);
 
-            if (id != 0)
-            {
-                var firma = stocareFirme.GetFirma(id);
-                txtNumeFirma.Text = firma.Name;
-                txtLogoUrl.Text = firma.LogoUrl;
-                    AfiseazaLivratori(id);
+                    txtNumeFirma.Text = firma.Name;
+                    txtLogoUrl.Text = firma.LogoUrl;
 
-            }
-            else
-            {
-                clearFirmaInputs();
-            }
+                    AfiseazaLivratori();
+                }
             }catch (Exception ex)
             {
 
@@ -295,23 +338,22 @@ namespace InterfataUtilizator
             {
                 if (lstFirme.SelectedItem != null)
                 {
-                    string curItem = lstFirme.SelectedItem.ToString();
+                    string currentFirma = lstFirme.SelectedItem.ToString();
 
-                    Int32.TryParse(curItem.Split(' ')[0], out int id);
-                    if (id != 0)
+                    Int32.TryParse(currentFirma.Split(' ')[0], out int idFirma);
+
+                    string currentAuto = lstMasine.SelectedItem.ToString();
+
+                    Int32.TryParse(currentAuto.Split(' ')[0], out int idAuto);
+                    if (idFirma != 0)
                     {
-                        var firma = stocareFirme.GetFirma(id);
+                        var firma = stocareFirme.GetFirma(idFirma);
 
-                        TipVehicol? veh = GetVehicolSelectat();
-                        if (veh.HasValue)
-                        {
-                            var newLivrator = new Employee(0, txtNumeLivrator.Text, txtPrenumeLivrator.Text, dataNasteriiPicker.Value.Date, dataAngPicker.Value.Date, emailValue.Text, firma.Id, 0, (int)veh);
+                            var newLivrator = new Livrator(0, txtNumeLivrator.Text, txtPrenumeLivrator.Text, dataNasteriiPicker.Value.Date, dataAngPicker.Value.Date, emailValue.Text, firma.Id, 0, idAuto);
                             stocareLivratori.AddLivrator(newLivrator);
-                            txtNumeLivrator.Text = "";
-                            txtPrenumeLivrator.Text = "";
-
-                        }
-
+                        resetLivratorData();
+                        lstMasine.ClearSelected();
+                        AfiseazaLivratori();
 
                     }
                     else
@@ -332,6 +374,17 @@ namespace InterfataUtilizator
 
         }
 
+        private void resetLivratorData()
+        {
+            dataNasteriiPicker.ResetText();
+            dataAngPicker.ResetText();
+            txtNumeLivrator.Text = "";
+            emailValue.Text = "";
+            txtPrenumeLivrator.Text = "";
+            lstMasine.ClearSelected();
+            eroareLivratorLbl.Text = "";
+        }
+
         private void eroareLivratorLbl_Click(object sender, EventArgs e)
         {
 
@@ -339,7 +392,42 @@ namespace InterfataUtilizator
 
         private void lstLivratori_SelectedIndexChanged(object sender, EventArgs e)
         {
+           try{
+                if (lstLivratori.SelectedItem != null)
+                {
+                    string selectedLivrator = lstLivratori.SelectedItem.ToString();
 
+                    Int32.TryParse(selectedLivrator.Split(' ')[0], out int idLivrator);
+
+                    Livrator selectedEmployee = stocareLivratori.GetLivrator(idLivrator);
+                    if (selectedEmployee != null)
+                    {
+
+                    dataNasteriiPicker.Value = selectedEmployee.BirthDate;
+                    dataAngPicker.Value = selectedEmployee.HireDate;
+                    txtNumeLivrator.Text = selectedEmployee.FirstName;
+                    emailValue.Text = selectedEmployee.Email;
+                    txtPrenumeLivrator.Text = selectedEmployee.LastName;
+                        lstMasine.ClearSelected();
+                        var masini = stocareMasini.GetMasini();
+                        for (int i= 0;i < masini.Count;i++)
+                        {
+
+                            if (masini[i].Id == selectedEmployee.VehicleId)
+                            {
+
+                                lstMasine.SetSelected(i+1, true);
+                            }
+                        }
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -354,6 +442,124 @@ namespace InterfataUtilizator
                 rdbAutomobil.Checked = false;
                 rdbMotocicleta.Checked = false;
                 rdbTrotineta.Checked = false;
+                eroareMasinaLbl.Text = "";
+                AfiseazaMasini();
+            }
+        }
+
+        private void lstMasine_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void editLivBtn_Click(object sender, EventArgs e)
+        {
+            if (ValidareDateIntrareLivrator())
+            {
+                if (lstFirme.SelectedItem != null)
+                {
+                    string currentFirma = lstFirme.SelectedItem.ToString();
+
+                    Int32.TryParse(currentFirma.Split(' ')[0], out int idFirma);
+
+
+                    string currentAuto = lstMasine.SelectedItem.ToString();
+
+                    Int32.TryParse(currentAuto.Split(' ')[0], out int idAuto);
+
+
+                    string currentLivrator= lstLivratori.SelectedItem.ToString();
+
+                    Int32.TryParse(currentLivrator.Split(' ')[0], out int idLivrator);
+
+
+
+                    if (idFirma != 0)
+                    {
+                        var firma = stocareFirme.GetFirma(idFirma);
+
+                        Livrator livratorForEdit = stocareLivratori.GetLivrator(idLivrator);
+                        livratorForEdit.FirstName = txtNumeLivrator.Text;
+                        livratorForEdit.LastName = txtPrenumeLivrator.Text;
+                        livratorForEdit.HireDate = dataAngPicker.Value.Date;
+                        livratorForEdit.BirthDate = dataNasteriiPicker.Value.Date;
+                        livratorForEdit.Email = emailValue.Text;
+                        livratorForEdit.VehicleId = idAuto;
+                        stocareLivratori.UpdateLivrator(livratorForEdit);
+                        resetLivratorData();
+                        lstMasine.ClearSelected();
+                        AfiseazaLivratori();
+
+                    }
+                    else
+                    {
+                        eroareLivratorLbl.Text = "Selecteaza o firma din lista";
+                    }
+
+                }
+                else
+                {
+                    eroareLivratorLbl.Text = "Selecteaza o firma din lista";
+                }
+            }
+        }
+
+        private void btnStergeFirma_Click(object sender, EventArgs e)
+        {
+            if (lstFirme.SelectedItem != null)
+            {
+                string curItem = lstFirme.SelectedItem.ToString();
+
+                Int32.TryParse(curItem.Split(' ')[0], out int id);
+                if (id != 0)
+                {
+                    stocareFirme.DeleteFirma(id);
+                    clearFirmaInputs();
+                    AfiseazaFirme();
+                    lstLivratori.Items.Clear();
+                }
+                else
+                {
+                    txtFirmaError.Text = "Selecteaza o firma din lista";
+                }
+
+            }
+            else
+            {
+                txtFirmaError.Text = "Selecteaza o firma din lista";
+            }
+        }
+
+        private void deleteLivBtn_Click(object sender, EventArgs e)
+        {
+            if (lstFirme.SelectedItem != null)
+            {
+                string currentFirma = lstFirme.SelectedItem.ToString();
+
+                Int32.TryParse(currentFirma.Split(' ')[0], out int idFirma);
+
+                string currentLivrator = lstLivratori.SelectedItem.ToString();
+
+                Int32.TryParse(currentLivrator.Split(' ')[0], out int idLivrator);
+
+
+                if (idFirma != 0)
+                {
+                    stocareLivratori.DeleteLivrator(idLivrator);
+                    resetLivratorData();
+                    lstMasine.ClearSelected();
+                    AfiseazaLivratori();
+
+                }
+                else
+                {
+                    eroareLivratorLbl.Text = "Selecteaza o firma din lista";
+                }
+
+            }
+            else
+            {
+                eroareLivratorLbl.Text = "Selecteaza o firma din lista";
             }
         }
     }
